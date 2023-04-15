@@ -50,7 +50,7 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $fields=$request->validate([
-            'email' => 'required|string',
+            'email' => 'required|email',
             'password' => 'required|string'
         ]);
 
@@ -62,7 +62,7 @@ class UserController extends Controller
             return response()->json(['message' => 'Bad Credentials'], 401);
         }
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
+        $token = $user->createToken('api-token')->plainTextToken;
 
         $response = [
             'user' => $user,
@@ -74,9 +74,11 @@ class UserController extends Controller
 
     public function logout(Request $request)
     {
-       auth()->user()->tokens()->where('id', $request->user()->currentAccessToken()->id)->delete();
+        //auth()->user()->tokens()->where('id', $request->user()->currentAccessToken()->id)->delete();
+
+        $request->user()->currentAccessToken()->delete();
         
-        return response()->json(['message' => 'Token revoked'], 200);
+        return response()->json(['message' => 'Logged out and Token revoked'], 200);
 
     }
 
