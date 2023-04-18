@@ -77,7 +77,7 @@ class LeituraController extends Controller
      */
     public function show_by_zona(string $zona_id)
     {
-        $leituras = Leitura::with(['sensor','zona'])->where('zona_id', $zona_id)->get();
+        $leituras = Leitura::with(['sensor','zona'])->where('zona_id', $zona_id)->latest()->first();
         
 
         if (!$leituras) {

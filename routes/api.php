@@ -4,6 +4,7 @@ use App\Http\Controllers\LeituraController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZonaController;
+use App\Http\Controllers\VentoinhaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,13 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// LOGIN
-//Route::post('/login', [LoginController::class, 'index']);
-
-
 //Protected Routes
 Route::group(['middleware' =>['auth:sanctum']], function(){
-    Route::get('/leituras',[LeituraController::class, 'index']);
+    //Route::get('/leituras',[LeituraController::class, 'index']);
     Route::post('/logout',[UserController::class, 'logout']);
 });
 
@@ -39,7 +36,7 @@ Route::get('/users',[UserController::class, 'index']);
 
 
 //Rotas get Leituras
-//Route::get('/leituras',[LeituraController::class, 'index']);
+Route::get('/leituras',[LeituraController::class, 'index']);
 Route::get('/leituras/{id}',[LeituraController::class, 'show']);
 Route::get('/leituras/sensor/{sensor_id}',[LeituraController::class, 'show_by_sensor']);
 Route::get('/leituras/zona/{zona_id}',[LeituraController::class, 'show_by_zona']);
@@ -80,6 +77,22 @@ Route::put('/zonas/{id}',[ZonaController::class,'update']);
 
 //Rotas DELETE Zonas
 Route::delete('/zonas/{id}',[ZonaController::class,'destroy']);
+
+############################Ventoinhas##########################
+
+//Rotas GET Ventoinhas
+Route::get('/ventoinhas',[VentoinhaController::class, 'index']);
+Route::get('/ventoinhas/{id}', [VentoinhaController::class, 'show']);
+
+//Rotas POST Ventoinhas
+Route::post('ventoinhas', [VentoinhaController::class, 'store']);
+
+//Rotas PUT Ventoinhas
+Route::put('/ventoinhas/{id}',[VentoinhaController::class,'update']);
+
+//Rotas DELETE Ventoinhas
+Route::delete('/ventoinhas/{id}',[VentoinhaController::class,'destroy']);
+
 
 
 

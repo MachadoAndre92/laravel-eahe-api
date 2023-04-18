@@ -59,7 +59,12 @@ class UserController extends Controller
 
         //Check password
         if (!$user || !Hash::check($fields['password'], $user->password)) {
-            return response()->json(['message' => 'Bad Credentials'], 401);
+            return response()->json([
+                'message' => 'Bad Credentials',
+                'errors' => [
+                    'credentials' => 'The provided credentials are incorrect.',
+                ],
+            ],401);
         }
 
         $token = $user->createToken('api-token')->plainTextToken;
