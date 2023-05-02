@@ -45,6 +45,9 @@ Route::get('/leituras/zona/{zona_id}',[LeituraController::class, 'show_by_zona']
 //Rotas POST Leituras
 Route::post('/leituras',[LeituraController::class,'store']);
 
+//Rotas PUT Leituras
+Route::put('/leituras/{id}',[LeituraController::class,'update']);
+
 //Rotas DELETE Leituras
 Route::delete('/leituras/{id}',[LeituraController::class,'destroy']);
 

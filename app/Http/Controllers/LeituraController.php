@@ -92,7 +92,9 @@ class LeituraController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $leitura = Leitura::find($id);
+        $leitura->update($request->all());
+        return $leitura;
     }
 
     /**
