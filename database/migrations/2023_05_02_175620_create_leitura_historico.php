@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('configs', function (Blueprint $table) {
+        Schema::create('leitura_historico', function (Blueprint $table) {
             $table->id();
             $table->integer('zona_id');
-            $table->integer('Mode');
-            $table->integer('Threshold_min');
-            $table->integer('Threshold_max');
-            $table->integer('Trigger');          
-            $table->integer('Ventoinha');
-            $table->integer('Servo');
-            $table->integer('Velocidade');
-            $table->integer('Temperatura');
+            $table->integer('sensor_id');
+            $table->string('temp');
+            $table->string('hum');
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('configs');
+        Schema::dropIfExists('leitura_historico');
     }
 };

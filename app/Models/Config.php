@@ -12,10 +12,13 @@ class Config extends Model
     protected $fillable = [
         'zona_id',
         'Mode',
-        'Threshold',
+        'Threshold_min',
+        'Threshold_max',
+        'Trigger',
         'Ventoinha',
         'Servo',
-        'Velocidade'
+        'Velocidade',
+        'Temperatura'
 
     ];
 

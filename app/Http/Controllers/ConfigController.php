@@ -13,13 +13,13 @@ class ConfigController extends Controller
      */
     public function index()
     {
-        $zonas = Config::all();
+        $config = Config::all();
 
-        if (!$zonas) {
-            return response()->json(['message' => 'zonas not found'], 404);
+        if (!$config) {
+            return response()->json(['message' => 'config not found'], 404);
         }
     
-        return response()->json($zonas, 200);
+        return response()->json($config, 200);
     }
 
     /**
@@ -27,7 +27,29 @@ class ConfigController extends Controller
      */
     public function store(Request $request)
     {
-        return Zona::create($request->all());
+        $request->validate(
+            [
+                'zona_id' => 'required',
+                'Mode' => 'required',
+                'Threshold_min' => 'required',
+                'Threshold_max' => 'required',
+                'Trigger' => 'required',
+                'Ventoinha' => 'required',
+                'Servo' => 'required',
+                'Velocidade' => 'required',
+                'Temperatura' => 'required'
+            ]
+        );
+
+        $config = Config::create($request->all());
+
+        if (!$config) {
+            return response()->json(['message' => 'config not created'], 422);
+        }
+        return response()->json($config, 201);
+        
+        
+       
     }
 
     /**
