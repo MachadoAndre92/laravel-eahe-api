@@ -5,6 +5,7 @@ use App\Http\Controllers\SensorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZonaController;
 use App\Http\Controllers\VentoinhaController;
+use App\Http\Controllers\ConfigController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -93,6 +94,21 @@ Route::put('/ventoinhas/{id}',[VentoinhaController::class,'update']);
 //Rotas DELETE Ventoinhas
 Route::delete('/ventoinhas/{id}',[VentoinhaController::class,'destroy']);
 
+############################Config##########################
+
+//Rotas GET Config
+Route::get('/config',[ConfigController::class, 'index']);
+Route::get('/config/{id}', [ConfigController::class, 'show']);
+Route::get('/config/zona/{zona_id}', [ConfigController::class, 'showByZona']);
+
+//Rotas POST Config
+Route::post('config', [ConfigController::class, 'store']);
+
+//Rotas PUT Config
+Route::put('/config/{id}',[ConfigController::class,'update']);
+
+//Rotas DELETE Config
+Route::delete('/config/{id}',[ConfigController::class,'destroy']);
 
 
 

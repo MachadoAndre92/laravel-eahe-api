@@ -15,4 +15,9 @@ class Zona extends Model
     {
         return $this->hasOne(Leitura::class);
     }
+
+    public function config()
+    {
+        return $this->hasOne(Config::class);
+    }
 }
