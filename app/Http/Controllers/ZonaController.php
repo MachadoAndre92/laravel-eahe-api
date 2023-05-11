@@ -59,6 +59,22 @@ class ZonaController extends Controller
     }
 
     /**
+     * Update the ar resource in zona.
+     */
+    public function update_ar(Request $request, string $id)
+    {
+        $zona = Zona::find($id);
+        $zona->update($request->all());
+
+        if (!$zona) {
+            return response()->json(['message' => 'zonas not found'], 404);
+        }
+    
+        return response()->json($zona, 201);
+        
+    }
+
+    /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)

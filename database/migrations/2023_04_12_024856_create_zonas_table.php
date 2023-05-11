@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('zonas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('temp_min');
+            $table->integer('temp_max');
+            $table->boolean('conduta_ar');
             $table->timestamps();
         });
     }

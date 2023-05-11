@@ -9,7 +9,10 @@ class Zona extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name',
+        'temp_min',
+        'temp_max',
+        'conduta_ar'];
 
     public function leitura()
     {

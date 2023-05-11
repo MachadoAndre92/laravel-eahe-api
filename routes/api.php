@@ -78,6 +78,7 @@ Route::post('zonas', [ZonaController::class, 'store']);
 
 //Rotas PUT Zonas
 Route::put('/zonas/{id}',[ZonaController::class,'update']);
+Route::put('/zonas/{id}/ar',[ZonaController::class,'update_ar']);
 
 //Rotas DELETE Zonas
 Route::delete('/zonas/{id}',[ZonaController::class,'destroy']);
