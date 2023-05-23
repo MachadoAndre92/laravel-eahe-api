@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Leitura;
+use App\Models\LeituraHistory;
 use Illuminate\Http\Request;
 
 class LeituraController extends Controller
@@ -92,8 +93,18 @@ class LeituraController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $request->validate([
+            'zona_id' => 'required',
+            'sensor_id' => 'required',
+            'temp' => 'required',
+            'hum' => 'required'
+        ]);
+
+        $leitura = LeituraHistory::create($request->all());
+
         $leitura = Leitura::find($id);
         $leitura->update($request->all());
+        
         return $leitura;
     }
 

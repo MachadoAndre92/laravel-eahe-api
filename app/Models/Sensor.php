@@ -15,4 +15,10 @@ class Sensor extends Model
     {
         return $this->hasMany(Leitura::class);
     }
+
+    public function leituraHistory()
+    {
+        return $this->hasMany(LeituraHistory::class);
+    }
 }
+

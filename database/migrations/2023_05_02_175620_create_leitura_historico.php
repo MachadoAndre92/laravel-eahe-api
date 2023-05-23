@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('leitura_historico', function (Blueprint $table) {
+        Schema::create('leitura_histories', function (Blueprint $table) {
             $table->id();
             $table->integer('zona_id');
             $table->integer('sensor_id');
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('leitura_historico');
+        Schema::dropIfExists('leitura_histories');
     }
 };
