@@ -24,13 +24,14 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' =>['auth:sanctum']], function(){
     //Route::get('/leituras',[LeituraController::class, 'index']);
     Route::post('/logout',[UserController::class, 'logout']);
+    Route::get('/users',[UserController::class, 'index']);
 });
 
 
 //User
 Route::post('/login', [UserController::class, 'login']);
 Route::post('/register', [UserController::class, 'register']);
-Route::get('/users',[UserController::class, 'index']);
+
 
 
 ############################Leituras##########################
