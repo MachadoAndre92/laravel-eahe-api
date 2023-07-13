@@ -27,7 +27,8 @@ class ZonaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'conduta_ar' => 'required',
         ]);
 
         return Zona::create($request->all());
