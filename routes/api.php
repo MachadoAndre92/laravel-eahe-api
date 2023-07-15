@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZonaController;
 use App\Http\Controllers\VentoinhaController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\LeituraHistoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

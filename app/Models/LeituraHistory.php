@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LeituraHistory extends Model
 {
+    protected $table = 'leitura_histories';
     use HasFactory;
 
     protected $fillable = [
