@@ -12,7 +12,7 @@ class LeituraHistoryController extends Controller
      */
     public function index()
     {
-        $leituras = LeituraHistory::with(['sensor','zona'])->take(20)->get();
+        $leituras = LeituraHistory::with(['sensor','zona'])->latest()->take(20)->get();
 
         if ($leituras->isEmpty()) {
             return response()->json(['message' => 'Leitura not found'], 404);
