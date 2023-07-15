@@ -39,6 +39,7 @@ Route::post('/register', [UserController::class, 'register']);
 
 //Rotas get Leituras
 Route::get('/leituras',[LeituraController::class, 'index']);
+Route::get('/leiturashistory',[LeituraHistoryController::class, 'index']);
 Route::get('/leituras/{id}',[LeituraController::class, 'show']);
 Route::get('/leituras/sensor/{sensor_id}',[LeituraController::class, 'show_by_sensor']);
 Route::get('/leituras/zona/{zona_id}',[LeituraController::class, 'show_by_zona']);
