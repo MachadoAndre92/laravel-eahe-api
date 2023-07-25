@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/{path}', [
+    'uses' => 'ReactController@index',
+    'as' => 'react',
+    'where' => ['path' => '.*']
+])->where('path', '^((?!api).)*$'); // except 'api' word;
