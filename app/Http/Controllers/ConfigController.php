@@ -33,6 +33,7 @@ class ConfigController extends Controller
                 'Threshold_min' => 'required',
                 'Threshold_max' => 'required',
                 'Temperatura' => 'required'
+                
             ]
         );
 
