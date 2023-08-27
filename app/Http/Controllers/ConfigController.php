@@ -32,8 +32,9 @@ class ConfigController extends Controller
                 'zona_id' => 'required',
                 'Threshold_min' => 'required',
                 'Threshold_max' => 'required',
-                'Temperatura' => 'required'
-                
+                'Temperatura' => 'required',
+                'Trigger' => 'required',
+
             ]
         );
 
