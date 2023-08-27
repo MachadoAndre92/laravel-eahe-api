@@ -30,13 +30,8 @@ class ConfigController extends Controller
         $request->validate(
             [
                 'zona_id' => 'required',
-                'Mode' => 'required',
                 'Threshold_min' => 'required',
                 'Threshold_max' => 'required',
-                'Trigger' => 'required',
-                'Ventoinha' => 'required',
-                'Servo' => 'required',
-                'Velocidade' => 'required',
                 'Temperatura' => 'required'
             ]
         );
