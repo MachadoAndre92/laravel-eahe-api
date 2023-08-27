@@ -12,10 +12,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('config', function (Blueprint $table) {
+        Schema::create('config', function (Blueprint $table) {
+            $table->id();
+            $table->integer('zona_id');
             $table->integer('Threshold_min');
             $table->integer('Threshold_max');
             $table->integer('Trigger');
+            $table->integer('Temperatura');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('config');
     }
 };
