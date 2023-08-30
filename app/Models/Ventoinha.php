@@ -12,7 +12,8 @@ class Ventoinha extends Model
     protected $fillable = [
         'name',
         'velocidade',
-        'mode'
+        'mode',
+        'fluxo_ar',
 
     ];
 }

@@ -29,7 +29,8 @@ class VentoinhaController extends Controller
         $request->validate([
             'name' => 'required',
             'velocidade' => 'required',
-            'mode' => 'required'
+            'mode' => 'required',
+            'fluxo_ar' => 'required',
         ]);
 
         return Ventoinha::create($request->all());
