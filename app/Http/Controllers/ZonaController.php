@@ -12,7 +12,8 @@ class ZonaController extends Controller
      */
     public function index()
     {
-        $zonas = Zona::all();
+
+        $zonas = Zona::with(['config'])->get();
 
         if (!$zonas) {
             return response()->json(['message' => 'zonas not found'], 404);

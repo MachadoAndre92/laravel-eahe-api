@@ -93,12 +93,14 @@ class LeituraController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        /*
         $request->validate([
             'zona_id' => 'required',
             'sensor_id' => 'required',
             'temp' => 'required',
             'hum' => 'required'
         ]);
+        */
 
         $leitura = LeituraHistory::create($request->all());
 

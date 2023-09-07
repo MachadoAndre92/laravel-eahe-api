@@ -26,4 +26,5 @@ class Leitura extends Model
     {
         return $this->belongsTo(Sensor::class);
     }
+
 }
